@@ -9,6 +9,11 @@ const userSchema = new Schema(
       required: false,
       unique: true
     },
+    artisticName: {
+      type: String,
+      unique: true,
+      required: false
+    },
     email: {
       type: String,
       required: true,

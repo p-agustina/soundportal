@@ -1,0 +1,29 @@
+<h1>Add your songs</h1>
+
+{{!-- add a form to upload songs --}}
+{{!-- chequear como poner generos en otro lado --}}
+
+
+<form action="/songs" method="POST">
+    <label for="title">Title: </label>
+    <input type="text" name="title">
+
+    <label for="songFileURL">Song file: </label>
+    <input type="file" name="songFileURL">
+    <input type="submit">
+
+    <label for="genre">Genre: </label>
+    <select name="genre">
+    <option value="rock">Rock</option>
+    <option value="techno">Techno</option>
+    <option value="pop">Pop</option>
+    <option value="indie">Indie</option>
+    </select>
+
+    <label for="coverImgURL">Cove image file: </label>
+    <input type="file" name="coverImgURL">
+    <input type="submit">
+
+    <button type="submit">Upload song</button>
+
+</form>
