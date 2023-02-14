@@ -26,6 +26,10 @@ const userSchema = new Schema(
     profileImg: {
       type: String
     },
+    music: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Song',
+  }],
     role: {
       type: String,
       enum: ["user", "admin"],

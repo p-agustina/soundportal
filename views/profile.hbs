@@ -7,3 +7,11 @@
 
 <h2>Your music:</h2>
 
+<br>
+{{#each user.music}}
+<h3>Song title: {{title}}</h3>
+<img src="{{coverImgURL}}" alt="">
+<audio controls>
+  <source src="{{songURL}}" type="audio/mpeg">
+{{/each}}
+</audio>
