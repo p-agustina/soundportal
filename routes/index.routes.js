@@ -1,4 +1,5 @@
 const express = require('express');
+const { isLoggedIn } = require('../middleware/route-guard');
 const router = express.Router();
 const User = require("../models/User.model");
 
@@ -9,6 +10,7 @@ router.get("/", (req, res, next) => {
 
 
 //add route to profile view
+
 router.get("/profile", (req, res, next) => {
   const user = req.session.user._id
     console.log("USER:",user)
@@ -17,6 +19,7 @@ router.get("/profile", (req, res, next) => {
   .then(userFromDB => {
     res.render("profile", {user: userFromDB })
   })
+
 
 })
 

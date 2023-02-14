@@ -42,6 +42,28 @@ router.post("/songs", uploader.single("songFileURL"),(req, res, next) => {
         })     
 })
 
+//add route to show the results from the search bar
 
+router.get("/music/search-song", (req, res, next) => {
+    res.render("music/search-song")
+})
+
+//add route to find a song searched for on the search bar in the index view
+
+router.post("/music/search-song", (req, res, next) => {
+    const query = req.body
+    console.log(query)
+
+    Song.find({title: {$regex: "query"}})
+    .then(songsFromDB => {
+        console.log(songFromDB)
+        if (songFromDB !== null) {
+            res.redirect("/music/search-song", {songsFromDB})
+        }
+    })
+    .catch(err => next(err))
+    //add message if song isn't found
+
+})
 
 module.exports = router;
