@@ -6,13 +6,15 @@ const userSchema = new Schema(
     username: {
       type: String,
       trim: true,
-      required: false,
+      required: true,
       unique: true
     },
-    artisticName: {
+
+    name: {
       type: String,
-      unique: true,
-      required: false
+      trim: true,
+      required: true,
+
     },
     email: {
       type: String,
