@@ -1,5 +1,11 @@
-<h1>Sign up</h1>
-<form action="/auth/signup" method="POST" enctype="multipart/form-data">
+<br>
+
+<div class="forms-container">
+
+<div class="auth-form-container">
+<h1>Create your account</h1>
+<br>
+<form class="auth-form" action="/auth/signup" method="POST" enctype="multipart/form-data">
     <label for="username">Username:</label>
 	<input type="text" name="username" required>
 
@@ -7,16 +13,23 @@
 	<input type="text" name="name">
 
     <label for="email">E-mail:</label>
-    <input type="email" name="email">
+    <input type="email" name="email" placeholder="xxxxxx@xxxxxx.xxx">
 
-    <label for="profileImgURL">Profile image file:</label>
+    <label for="profileImgURL">Profile image:</label>
     <input type="file" name="profileImgURL">
+
 
     <label for="password">Password:</label>
     <input type="password" name="password">
-	
     <button type="submit">Sign up</button>
+
+    <h5>Already have an account? Sign in <a href="/auth/login">here.</a></h5>
 </form>
+</div>
+
+<img src="../images/4.jpg" alt="">
+
+</div>
 
 {{#if message}}
 	<h3 class="error">{{message}}</h3>

@@ -44,11 +44,12 @@ router.post("/songs", uploader.single("songFileURL"),(req, res, next) => {
 
 //add route to show the results from the search bar
 
-router.get("/music/search-song", (req, res, next) => {
-    res.render("music/search-song")
-})
+// router.get("/music/search-song", (req, res, next) => {
+//     res.render("music/search-song")
+// })
 
 //add route to find a song searched for on the search bar in the index view
+//aca seguro haya que agregar algo con la id de la cancion
 
 router.post("/music/search-song", (req, res, next) => {
     const query = req.body
@@ -56,9 +57,9 @@ router.post("/music/search-song", (req, res, next) => {
 
     Song.find({title: {$regex: "query"}})
     .then(songsFromDB => {
-        console.log(songFromDB)
-        if (songFromDB !== null) {
-            res.redirect("/music/search-song", {songsFromDB})
+        console.log("ESTO ES LO QUE ENCONTRO", songsFromDB)
+        if (songsFromDB !== null) {
+            res.render("music/search-song", {songs: songsFromDB})
         }
     })
     .catch(err => next(err))

@@ -1,5 +1,8 @@
+<div class="forms-container">
+<div class="auth-form-container login-form-container">
 <h1>Log in</h1>
-<form action="/auth/login" method="POST">
+<form class="auth-form" action="/auth/login" method="POST">
+    
     <label for="username">Username:</label>
 	<input type="text" name="username" required>
 	
@@ -7,7 +10,11 @@
     <input type="password" name="password" required>
 	
     <button type="submit">Log in</button>
+    <h5>Not registered yet? Sign up <a href="/auth/signup">here.</a></h5>
 </form>
+</div>
+<img src="../images/5.jpg" alt="">
+</div>
 
 {{#if message}}
 	<h3 class="error">{{message}}</h3>
