@@ -1,11 +1,20 @@
 body {
-  padding: 50px; 
+  padding: 0 2%; 
+  background: black;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 nav {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  flex-direction: row;
+  /* position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; Full width */
+}
+
+.auth-container {
+  text-align: right;
 }
 
 nav a {
@@ -28,6 +37,7 @@ nav a {
 .dropdown {
   position: relative;
   display: inline-block;
+  width: 20rem;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -72,16 +82,39 @@ a {
   color: #00b7ff;
 }
 
-/* form {
+.forms-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.login-form-container form button, h1 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.forms-container img {
+  width: 60%;
+  border-radius: 20rem 0 0 20rem;
+}
+
+.auth-form-container {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 35%;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  /* width: 30%; */
 } 
 
-form input, label, button {
+.auth-form input, label, button {
   margin: 0.5rem 0
 }
 
-form button {
+.auth-form button {
   padding: 1rem
-} */
+}
+
