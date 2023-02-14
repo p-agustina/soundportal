@@ -56,10 +56,12 @@ router.post("/auth/signup", (req, res, next) => {
     })
 })
 
+
 //added route to render login view
 router.get("/auth/login", (req, res, next) => {
     res.render("login")
 })
+
 
 
 module.exports = router;
