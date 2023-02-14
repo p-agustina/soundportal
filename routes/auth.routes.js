@@ -1,6 +1,7 @@
 const router = require("express").Router()
 const User = require("../models/User.model")
 const bcrypt = require("bcryptjs")
+const Song = require("../models/Song.model")
 
 //upload to cloudinary
 const { uploader, cloudinary } = require("../config/cloudinary.config")
@@ -61,6 +62,8 @@ router.post("/auth/signup",uploader.single("profileImgURL"), (req, res, next) =>
     })
 })
 
+
+
 //added route to render login view
 router.get("/auth/login", (req, res, next) => {
     res.render("login")
@@ -97,6 +100,8 @@ router.post("/auth/login", (req, res, next) => {
 //     req.session.destroy()
 //     res.redirect("/")
 //   })
+
+
 
 
 module.exports = router;
