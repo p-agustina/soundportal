@@ -9,7 +9,7 @@ router.get("/auth/signup", (req, res, next) => {
     res.render("signup")
     })
 
-    router.post("/auth/signup", (req, res, next) => {
+router.post("/auth/signup", (req, res, next) => {
         const { username, password, name, email, profileImg } = req.body
 
     // Validation
@@ -55,3 +55,11 @@ router.get("/auth/signup", (req, res, next) => {
         }
     })
 })
+
+//added route to render login view
+router.get("/auth/login", (req, res, next) => {
+    res.render("login")
+})
+
+
+module.exports = router;

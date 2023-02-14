@@ -14,15 +14,13 @@ router.get("/music/add-song", (req, res) => {
 //chequear como crear el author en base al username
 
 router.post("/songs", (req, res, next) => {
-    const {title, genre, coverImgURL, songFileURL} = req.body
-    const author = User.username
+    const {title, author, genre, coverImgURL, songFileURL} = req.body
+    const id = 
 
     Song.create({title, genre, coverImgURL, songFileURL, author})
     .then(createdSong => {
-        res.render()
+        res.render("profile")
     })       
-    
-
 })
 
 
