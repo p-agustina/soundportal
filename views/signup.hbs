@@ -2,13 +2,24 @@
 <form action="/auth/signup" method="POST">
     <label for="username">Username:</label>
 	<input type="text" name="username" required>
-	
+
+    <label for="name">Name:</label>
+	<input type="text" name="name">
+
+    <label for="email">E-mail:</label>
+    <input type="email" name="email">
+
+    <label for="profileImgURL">Profile image file:</label>
+    <input type="file" name="profileImgURL">
+
     <label for="password">Password:</label>
     <input type="password" name="password" required>
 	
-    <button type="submit">Signup</button>
+    <button type="submit">Sign up</button>
 </form>
 
 {{#if message}}
 	<h3 class="error">{{message}}</h3>
 {{/if}}
+
+
