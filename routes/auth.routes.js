@@ -10,12 +10,12 @@ router.get("/auth/signup", (req, res, next) => {
     res.render("signup")
     })
 
-router.post("/auth/signup",uploader.single("profileimage"), (req, res, next) => {
+router.post("/auth/signup",uploader.single("profileImgURL"), (req, res, next) => {
         const { username, password, name, email } = req.body
 
 
     //uploaded image
-        const imgPath = req.file.path
+        const profileImgURL = req.file.path
 
     // Validation
     // Check if username is empty
@@ -49,7 +49,7 @@ router.post("/auth/signup",uploader.single("profileimage"), (req, res, next) => 
         console.log(hash)
 
         // Create user
-        User.create({ username: username, password: hash, name, email, profileImg:imgPath  })
+        User.create({ username: username, password: hash, name, email, profileImg: profileImgURL })
             .then(createdUser => {
             console.log(createdUser)
             res.redirect("/auth/login")
