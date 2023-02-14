@@ -29,7 +29,10 @@ const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 
 const musicRoutes = require("./routes/music.routes");
-app.use("/", musicRoutes)
+app.use("/", musicRoutes);
+
+const authRoutes = require("./routes/auth.routes");
+app.use("/", authRoutes);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/", authRoutes)
