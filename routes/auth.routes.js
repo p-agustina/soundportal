@@ -92,11 +92,11 @@ router.post("/auth/login", (req, res, next) => {
   })
 })
 
-// router.get("/auth/logout", (req, res, next) => {
-//     // Logout user
-//     req.session.destroy()
-//     res.redirect("/")
-//   })
+router.get("/auth/logout", (req, res, next) => {
+    // Logout user
+    req.session.destroy()
+    res.redirect("/")
+  })
 
 
 module.exports = router;
