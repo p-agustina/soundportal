@@ -3,8 +3,6 @@ const User = require("../models/User.model")
 const bcrypt = require("bcryptjs")
 
 
-
-
 router.get("/auth/signup", (req, res, next) => {
     res.render("signup")
     })
@@ -56,12 +54,42 @@ router.post("/auth/signup", (req, res, next) => {
     })
 })
 
-
 //added route to render login view
 router.get("/auth/login", (req, res, next) => {
     res.render("login")
 })
 
+router.post("/auth/login", (req, res, next) => {
+    const { username, password } = req.body
+
+    // Find user in database by username
+  User.findOne({ username })
+  .then(userFromDB => {
+    if (userFromDB === null) {
+      // User not found in database => Show login form
+      res.render("login", { message: "Wrong credentials" })
+      return
+    }
+
+    // User found in database
+    // Check if password from input form matches hashed password from database
+    if (bcrypt.compareSync(password, userFromDB.password)) {
+      // Password is correct => Login user
+      // req.session is an object provided by "express-session"
+      req.session.user = userFromDB
+      res.redirect("/profile")
+    } else {
+      res.render("login", { message: "Wrong credentials" })
+      return
+    }
+  })
+})
+
+// router.get("/auth/logout", (req, res, next) => {
+//     // Logout user
+//     req.session.destroy()
+//     res.redirect("/")
+//   })
 
 
 module.exports = router;
