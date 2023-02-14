@@ -17,7 +17,10 @@ router.post("/songs", (req, res, next) => {
     const {title, genre, coverImgURL, songFileURL} = req.body
     const author = User.username
 
-        
+    Song.create({title, genre, coverImgURL, songFileURL, author})
+    .then(createdSong => {
+        res.render()
+    })       
     
 
 })
