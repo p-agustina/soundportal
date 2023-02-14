@@ -12,11 +12,27 @@ const storage = new CloudinaryStorage({
   // cloudinary: cloudinary,
   cloudinary,
   params: {
-    allowed_formats: ['jpg', 'png', 'mp3', 'mpeg'],
-    folder: 'soundportal', // The name of the folder in cloudinary
+    allowed_formats: ['jpg', 'png'],
+    folder: 'userimages', // The name of the folder in cloudinary 
+  }
+});
+
+const musicstorage = new CloudinaryStorage({
+  // cloudinary: cloudinary,
+  cloudinary,
+  params: {
+    allowed_formats: ['mp3', 'mpeg'],
+    folder: 'songs', // The name of the folder in cloudinary
     resource_type: 'raw' 
   }
 });
- 
-//                     storage: storage
-module.exports = multer({ storage });
+
+
+const uploader = multer({ storage })
+const musicuploader = multer({musicstorage})
+
+module.exports = {
+	uploader,
+  musicuploader,
+	cloudinary
+}

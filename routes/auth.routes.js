@@ -2,13 +2,20 @@ const router = require("express").Router()
 const User = require("../models/User.model")
 const bcrypt = require("bcryptjs")
 
+//upload to cloudinary
+const { uploader, cloudinary } = require("../config/cloudinary.config")
+
 
 router.get("/auth/signup", (req, res, next) => {
     res.render("signup")
     })
 
-router.post("/auth/signup", (req, res, next) => {
-        const { username, password, name, email, profileImg } = req.body
+router.post("/auth/signup",uploader.single("profileimage"), (req, res, next) => {
+        const { username, password, name, email } = req.body
+
+
+    //uploaded image
+        const imgPath = req.file.path
 
     // Validation
     // Check if username is empty
@@ -42,7 +49,7 @@ router.post("/auth/signup", (req, res, next) => {
         console.log(hash)
 
         // Create user
-        User.create({ username: username, password: hash, name, email, profileImg  })
+        User.create({ username: username, password: hash, name, email, profileImg:imgPath  })
             .then(createdUser => {
             console.log(createdUser)
             res.redirect("/auth/login")
