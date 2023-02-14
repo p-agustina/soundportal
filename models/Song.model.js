@@ -6,10 +6,6 @@ const songSchema = new Schema (
             type: String,
             required: true
         },
-        author: {
-            type: Schema.Types.ObjectId,
-		    ref: 'User',
-        },
         coverImgURL: {
             type: String            
         },
