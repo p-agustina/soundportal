@@ -18,7 +18,20 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
-require('./config/session.config')(app);
+const session = require("express-session")
+const MongoStore = require("connect-mongo")
+
+app.use(
+  session({
+    secret: process.env.SESS_SECRET,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 },
+    resave: true,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI
+    })
+  })
+)
 
 // default value for title local
 const capitalize = require("./utils/capitalize");
