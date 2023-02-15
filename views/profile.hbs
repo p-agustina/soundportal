@@ -1,24 +1,29 @@
 <div class="user-profile">
 
-<div class="profile-img-container">
-<img src="{{user.profileImg}}" alt="">
-</div>
-<h1>Hello {{user.name}}!!</h1>
+  <h1>Hello {{user.name}}!!</h1>
+
+  <div class="profile-img-container">
+    <img src="{{user.profileImg}}" alt="">
+  </div>
 
 </div>
-
-<h2>Your saved music:</h2>
 
 <h2>Your music:</h2>
 
 <br>
 {{#each user.music}}
-<h3>Song title: {{title}}</h3>
-<img src="{{coverImgURL}}" alt="">
-<audio controls>
-  <source src="{{songURL}}" type="audio/mpeg">
-  </audio>
-<a href="/music/edit/{{id}}">Edit song details</a>
-<a href="/music/delete/{{id}}">Delete song</a>
+  <div class="song-container">
+    <div class="song-img-container">
+      <img src="{{coverImgURL}}" alt="">
+    </div>
+  <div class="song-det-container">
+    <h3>Song title: {{title}}</h3>
+    <audio controls>
+      <source src="{{songURL}}" type="audio/mpeg">
+    </audio>
+    <a href="/music/edit/{{id}}">Edit song details</a>
+    <a href="/music/delete/{{id}}">Delete song</a>
+  </div>
+</div>
 {{/each}}
 
