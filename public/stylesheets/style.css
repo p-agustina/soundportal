@@ -1,7 +1,12 @@
 body {
-  padding: 0 2%; 
-  background: black;
+  padding: 0;
+  margin: 0; 
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+*{
+  background-color: #191414;
+  color: white;
 }
 
 
@@ -10,8 +15,11 @@ nav {
   justify-content: space-between;
   flex-direction: row;
   /* position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
   width: 100%; /*Full width */
+}
+
+.nav-button {
+  
 }
 
 nav div{
@@ -31,13 +39,15 @@ nav div{
   flex-direction: row;
   justify-content: end;
   align-items: center;  
+
 }
 
 nav a {
   margin: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .dropbtn {
@@ -81,7 +91,7 @@ nav a {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #00b7ff;
+  /*WRITE SOME HOVER FOR LINKS"
 }
 
 .index-container {
@@ -112,7 +122,9 @@ nav a {
 
 
 a {
-  color: #00b7ff;
+  
+  text-decoration: none;
+  color: white;
 }
 
 .forms-container {
