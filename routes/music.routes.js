@@ -97,7 +97,6 @@ router.post("/music/search-song", (req, res, next) => {
 
     Song.findOne({"title": {$regex: query, $options: "i" }})
     .then(songsFromDB => {
-        console.log("this is what it found:", songsFromDB)
         if (songsFromDB !== null) {
             res.render("music/search-song", {songs: songsFromDB})
         }
