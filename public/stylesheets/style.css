@@ -1,25 +1,80 @@
 body {
   padding: 0;
   margin: 0; 
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px;
 }
 
-/* *{ */
-  /* background-color: #191414; */
-  /* color: white; */
-/* } */
+*{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
+#fakebody{
+  height: 100vh;
+  display: block;
+}
+
+/*  color: white; 
+verde spoty #1DB954
+ */
+#footer{
+  display: flex;
+  background-color: #191414;
+  color: white;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+#footer p{
+  margin: 0;
+}
 
 nav {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  
   /* position: fixed; /* Set the navbar to fixed position */
   width: 100%; /*Full width */
+  background-color: #191414;
+  height: 60px;
 }
 
+nav > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#link{
+  text-decoration: none;
+  color: white;
+  font-weight: lighter;
+}
 .nav-button {
   
+}
+
+#login-but{
+  border-color: white;
+  background-color: #191414;
+  border-radius: 4px;
+  margin-right: 20px;
+  height: 40px;
+}
+
+#signup-but{
+  background-color: #1DB954;
+  border-color: #1DB954;
+  border-radius: 4px;
+  height: 40px;
+}
+
+#logout-but{
+  border-color: white;
+  background-color: #191414;
+  border-radius: 4px;
 }
 
 nav div{
@@ -32,14 +87,15 @@ nav div{
   flex-direction: row;
   justify-content: left;
   align-items: center;  
+  margin-left: 40px;
 }
 
 .auth-container {
   display: flex;
   flex-direction: row;
-  justify-content: end;
-  align-items: center;  
-
+  align-items: center; 
+  justify-content: center; 
+  margin-right: 40px;
 }
 
 nav a {
@@ -90,25 +146,41 @@ nav a {
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
+/*.dropdown:hover .dropbtn {
   /*WRITE SOME HOVER FOR LINKS"
-}
+}*/
 
 .index-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /*margin-top: 8rem;*/
+  align-items: center;
+  margin-top: 2%;
+}
+
+#upload-but {
+  margin-left: 20px;
+  background-color: #1DB954;
+  border-radius: 3px;
+}
+
+#upload-but a{
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+}
+
+#find-but{
+  border-radius: 3px;
+  margin-right: 20px;
 }
 
 #container-index{
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  height: calc(100vh - 110px);
 }
 
 .carousel .carousel-item {
-  height: 500px;
+  min-height: 70vh;
 }
 
 .carousel-item img {
@@ -116,25 +188,27 @@ nav a {
     object-fit: cover;
     top: 0;
     left: 0;
-    min-height: 500px;
+    max-height: 70vh;
 }
 
-a {
-  
-  text-decoration: none;
-  color: white;
-}
 
 .forms-container {
+  height: calc(100vh - 110px);
   display: flex;
   justify-content: space-between;
-  flex-grow: 1;
 }
 
 #form-login {
-  padding-top: 70px;
+  padding-top: 40px;
 }
 
+#signup-form h1{
+  font-size: 2rem;
+}
+
+#signup-form {
+  font-size: 0.8rem;
+}
 
 
 .login-form-container form button, h1 {
@@ -144,28 +218,35 @@ a {
 }
 
 .forms-container img {
-  width: 60%;
+  width: 55%;
   border-radius: 20rem 0 0 20rem;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  
 }
 
 .auth-form-container {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  max-width: 35%;
+  height: 500px;
+  margin-left: 60px;
+  margin-top: 3%;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
   /* width: 30%; */
+  height: 50%;
 } 
 
 .auth-form input, label, button {
-  margin: 0.5rem 0
+  margin: 0.3rem 0
 }
 
 .auth-form button {
-  padding: 1rem
+  padding: 0.8rem
 }
 
 
@@ -176,6 +257,13 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
   display: flex;
   justify-content: space-around;
 } */
+.profile-container{
+  min-height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .user-profile {
   display: flex;
   background-color: bisque;
@@ -206,6 +294,8 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
   background: rgba(0,0,0,0.7);
   color: white;
 } */
+
+
 
 .profile-nav {
   width: 100vw;
@@ -260,3 +350,6 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
   color: black;
 }
 
+#addsongs-container{
+  height: calc(100vh - 110px);
+}
