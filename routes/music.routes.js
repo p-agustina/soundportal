@@ -89,19 +89,17 @@ router.get("/music/:id/delete", (req, res, next) => {
 //aca seguro haya que agregar algo con la id de la cancion
 
 router.post("/music/search-song", (req, res, next) => {
-    const query = req.body
-    console.log(query)
+    const {query} = req.body
 
-    Song.find({title: {$regex: "query"}})
+    Song.findOne({"title": {$regex: query, $options: "i" }})
     .then(songsFromDB => {
-        console.log("ESTO ES LO QUE ENCONTRO", songsFromDB)
+        console.log("this is what it found:", songsFromDB)
         if (songsFromDB !== null) {
             res.render("music/search-song", {songs: songsFromDB})
         }
     })
     .catch(err => next(err))
     //add message if song isn't found
-
 })
 
 module.exports = router;
