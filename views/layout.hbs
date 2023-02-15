@@ -15,12 +15,14 @@
    <body>
    
       <nav>
+         
          <div>
          <div class="logo-container">
             <a href="/">Soundportal 🎵</a>
          </div>
+         
          <div class="auth-container">
-
+   {{#unless user}}
             <div class="signup-container">
                <a href="/auth/signup">SIGN UP</a>
             </div>
@@ -41,9 +43,12 @@
                      </form>
                   </div>
             </div>
-            <div ckass="logout-container">
+            {{/unless}}
+      {{#if user}}
+            <div class="logout-container">
                <a href="/auth/logout">LOG OUT</a>
             </div>
+            {{/if}}
          </div>
          </div>
       </nav>

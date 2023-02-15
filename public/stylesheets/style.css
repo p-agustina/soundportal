@@ -4,6 +4,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -18,10 +19,18 @@ nav div{
   justify-content: space-between;
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;  
+}
+
 .auth-container {
   display: flex;
   flex-direction: row;
-  justify-content: end;  
+  justify-content: end;
+  align-items: center;  
 }
 
 nav a {
@@ -42,8 +51,8 @@ nav a {
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
-  display: inline-block;
+ /* position: relative;
+ /* display: inline-block;
   /* width: 10rem; */
 }
 
@@ -55,6 +64,7 @@ nav a {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  margin-top: 70px;
 }
 
 /* Links inside the dropdown */
@@ -92,12 +102,19 @@ a {
 .forms-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  flex-grow: 1;
 }
+
+#form-login {
+  padding-top: 70px;
+}
+
+
 
 .login-form-container form button, h1 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .forms-container img {
