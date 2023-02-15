@@ -17,7 +17,7 @@ router.post("/auth/signup",uploader.single("profileImgURL"), (req, res, next) =>
 
     //uploaded image
         const profileImgURL = req.file.path
-
+        
     // Validation
     // Check if username is empty
         if (username === "") {
