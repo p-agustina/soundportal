@@ -3,27 +3,33 @@ const router = express.Router();
 //required the Song and User model to use them in the routes
 const Song = require("../models/Song.model");
 const User = require("../models/User.model");
+const { isLoggedIn } = require('../middleware/route-guard');
 
 //to upload to cloudinary
 const { uploader,musicuploader, cloudinary } = require("../config/cloudinary.config")
 
 //create route to render the form to add a song when the link on the index.hbs is clicked
 
-router.get("/music/add-song", (req, res) => {
+router.get("/music/add-song",isLoggedIn, (req, res) => {
     res.render("music/add-song");
 })
 
 //set new post route to creat a new song with input from the form
 //chequear como crear el author en base al username
 
-router.post("/songs", uploader.single("songFileURL"),(req, res, next) => {
+router.post("/songs", uploader.any([{ name: "songFileURL" }, { name: "coverImgURL" }]),(req, res, next) => {
     const {title, author, genre} = req.body
-    const songFileURL = req.file.path
+    const files = req.files
+    console.log("LAS FILESSS!", files)
     
+    const songFileURL = files[0].path
+    const coverImgURL = files[1].path
+
     console.log(req.session)
     const id = req.session.user._id
     console.log("userid: ", req.session.user._id)
-    Song.create({title, genre, songURL: songFileURL, author})
+
+    Song.create({title, genre, songURL: songFileURL,coverImgURL, author})
     .then(createdSong => {
         console.log("song: ", createdSong._id)
         User.findByIdAndUpdate(req.session.user._id, { $push: { music: createdSong._id } })
