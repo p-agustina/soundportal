@@ -4,10 +4,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-*{
-  background-color: #191414;
-  color: white;
-}
+/* *{ */
+  /* background-color: #191414; */
+  /* color: white; */
+/* } */
 
 
 nav {
@@ -119,8 +119,6 @@ nav a {
     min-height: 500px;
 }
 
-
-
 a {
   
   text-decoration: none;
@@ -230,14 +228,35 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
 .song-container {
   width: 100vw;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
   background-color: hsl(0, 10%, 88%);
   padding: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .song-container img{
   width: 150px;
   height: 150px;
+  margin-right: 2rem;
+}
+
+.big-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.audio-container h6 {
+  color: gray;
+}
+
+.genre-container p {
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  border-radius: 40%;
+  padding: 0.2rem 0.4rem;
+}
+
+.edit-container {
+  font-size: 0.8rem;
+  color: black;
 }
 
