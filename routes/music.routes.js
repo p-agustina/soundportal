@@ -13,11 +13,6 @@ router.get("/music/add-song", (req, res) => {
     res.render("music/add-song");
 })
 
-
-
-
-
-
 //set new post route to creat a new song with input from the form
 //chequear como crear el author en base al username
 
@@ -41,6 +36,42 @@ router.post("/songs", uploader.single("songFileURL"),(req, res, next) => {
         next(err)
         })     
 })
+
+//render a form to edit the songs
+
+router.get("/music/edit/:id", (req, res, next) => {
+    const id = req.params.id
+
+    Song.findById(id) 
+    .then(songFromDB => {
+        console.log(songFromDB)
+        res.render("music/edit", {song: songFromDB})
+    })
+    .catch(err => next(err))
+})
+
+//route to edit the song's details
+
+router.post("/music/edit/:id", (req, res, next) => {
+    const id = req.params.id;
+    console.log("este es el id",id)
+    const {title, author, genre} = req.body
+
+    Song.findByIdAndUpdate(id, {title, author, genre,
+        new: true
+    })
+    // console.log("ESTA ES LA CANCION MODIFICADA:", updatedSong)
+    .then(updatedSong => {
+        console.log(updatedSong)
+        // res.redirect("/profile")
+    })
+
+})
+
+
+
+
+
 
 //add route to show the results from the search bar
 

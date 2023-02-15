@@ -1,0 +1,25 @@
+<h1>Edit {{song.title}} details</h1>
+
+<img src="{{song.coverImgURL}}" alt="song's cover image">
+
+<form action="/music/edit/:id" method="POST" enctype="multipart/form-data">
+    <label>
+        Title
+        <input type="text" name="title" value="{{song.title}}"/>
+    </label>
+    <label>
+        Author
+        <input type="text" name="author" value="{{song.author}}">
+    </label>
+    <label>
+        Genre
+        <select name="genre" value="{{song.genre}}">
+            <option value="rock">Rock</option>
+            <option value="techno">Techno</option>
+            <option value="pop">Pop</option>
+            <option value="indie">Indie</option>
+    </label>
+    <input type="submit"></input>
+
+</form>
+
