@@ -1,18 +1,22 @@
 <div class="user-profile">
 
-  <h1>Hello {{user.name}}!!</h1>
-
   <div class="profile-img-container">
-    <img src="{{user.profileImg}}" alt="">
+    <img src="{{user.profileImg}}" alt="profile image">
+  </div>
+
+  <div id="username-cont">
+    <h2>{{user.username}}</h1>
+    <h4>{{user.name}}</h3>
   </div>
 
 </div>
 
-<h2>Your music:</h2>
+<div class="profile-nav">
+  <a href="#">My music</a>
+  <a href="/music/add-song">Upload a song</a>
+</div>
+<hr>
 
-<a href="/music/add-song">Upload a song!</a>
-
-<br>
 {{#each user.music}}
 
 <div class="song-container">
