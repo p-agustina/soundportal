@@ -8,7 +8,7 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100-->" src="../images/image1.jpg" alt="First slide">
+      <img class="d-block w-100" src="../images/image1.jpg" alt="First slide">
       <div class="carousel-caption d-none d-md-block">
         <h5>ACA VA UN LINK</h5>
         <button>CLICKEAME</button>
@@ -45,11 +45,14 @@
     <div id="search-container">
         <form action="/music/search-song" method="POST">
         <input type="text" name="query" placeholder="Song's Title/Author">
-        <button type="submit">FIND</button>
+        <button id="find-but" type="submit">FIND</button>
         </form>
     </div>
+    <div>
+      <p> or</p>
+    </div>
     <div id="upload-btn">
-        <a href="/music/add-song">Upload your music</a>
+        <button id="upload-but"><a href="/music/add-song">Upload your music</a></button>
     </div>
 </div>
 
