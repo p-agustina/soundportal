@@ -41,11 +41,7 @@ nav a {
 }
 
 .dropbtn {
-  background-color: #00b7ff;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+ 
   cursor: pointer;
 }
 
@@ -64,7 +60,7 @@ nav a {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 /* Links inside the dropdown */
@@ -92,8 +88,28 @@ nav a {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 8rem;
+  /*margin-top: 8rem;*/
 }
+
+#container-index{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.carousel .carousel-item {
+  height: 500px;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    min-height: 500px;
+}
+
+
 
 a {
   color: #00b7ff;
