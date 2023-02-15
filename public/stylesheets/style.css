@@ -13,8 +13,15 @@ nav {
   width: 100%; Full width */
 }
 
+nav div{
+  display: flex;
+  justify-content: space-between;
+}
+
 .auth-container {
-  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;  
 }
 
 nav a {
@@ -37,7 +44,7 @@ nav a {
 .dropdown {
   position: relative;
   display: inline-block;
-  width: 20rem;
+  /* width: 10rem; */
 }
 
 /* Dropdown Content (Hidden by Default) */
