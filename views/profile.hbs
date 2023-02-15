@@ -13,12 +13,18 @@
 
 <br>
 {{#each user.music}}
-<h3>Song title: {{title}}</h3>
+<div class="song-container">
 <img src="{{coverImgURL}}" alt="">
+<h3>{{title}}</h3>
+<h4>{{author}}</h4>
 <audio controls>
   <source src="{{songURL}}" type="audio/mpeg">
   </audio>
-<a href="/music/edit/{{id}}">Edit song details</a>
-<a href="/music/delete/{{id}}">Delete song</a>
+{{!-- hacer que el link del genre te lleve a todas las canciones de ese genre --}}
+<p>#{{genre}}</p>
+<a href="/music/edit/{{id}}">Edit</a>
+{{!-- delete a song icon --}}
+<a href="/music/{{id}}/delete"><i style="font-size:24px" class="fa">&#xf014;</i></a>
+</div>
 {{/each}}
 

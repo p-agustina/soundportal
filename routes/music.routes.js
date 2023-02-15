@@ -44,34 +44,34 @@ router.get("/music/edit/:id", (req, res, next) => {
 
     Song.findById(id) 
     .then(songFromDB => {
-        console.log(songFromDB)
         res.render("music/edit", {song: songFromDB})
     })
     .catch(err => next(err))
 })
 
-//route to edit the song's details
+// edit the song's details
 
 router.post("/music/edit/:id", (req, res, next) => {
     const id = req.params.id;
-    console.log("este es el id",id)
-    const {title, author, genre} = req.body
+    const {title, author, genre} = req.body;
 
-    Song.findByIdAndUpdate(id, {title, author, genre,
-        new: true
-    })
-    // console.log("ESTA ES LA CANCION MODIFICADA:", updatedSong)
+    Song.findByIdAndUpdate(id, {title, author, genre},{new: true})
     .then(updatedSong => {
-        console.log(updatedSong)
-        // res.redirect("/profile")
+        res.redirect("/profile");
     })
-
+    .catch(err => next(err));
 })
 
+// delete a song from profile
 
+router.get("/music/:id/delete", (req, res, next) => {
+    const id = req.params.id;
 
-
-
+    Song.findByIdAndRemove(id)
+    .then(deletedSong => {
+        res.redirect("/profile");
+    })
+})
 
 //add route to show the results from the search bar
 
