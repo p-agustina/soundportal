@@ -6,9 +6,14 @@ const User = require("../models/User.model");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
+
+  if(req.session.user){
   const user = req.session.user._id
 
-  res.render("index", {user: user} );
+  res.render("index", {user: user} );}
+else{
+  res.render("index")
+}
 });
 
 
@@ -22,8 +27,6 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   .then(userFromDB => {
     res.render("profile", {user: userFromDB })
   })
-
-
 })
 
 
