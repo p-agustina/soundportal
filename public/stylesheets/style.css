@@ -187,5 +187,8 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
   margin: 0.5rem;
 }
 
-/* ------- */
+.song-container img{
+  width: 150px;
+  height: 150px;
+}
 
