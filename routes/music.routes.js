@@ -11,7 +11,10 @@ const { uploader,musicuploader, cloudinary } = require("../config/cloudinary.con
 //create route to render the form to add a song when the link on the index.hbs is clicked
 
 router.get("/music/add-song",isLoggedIn, (req, res) => {
-    res.render("music/add-song");
+    const user = req.session.user._id
+
+
+    res.render("music/add-song", {user: user});
 })
 
 //set new post route to creat a new song with input from the form
@@ -47,10 +50,11 @@ router.post("/songs", uploader.any([{ name: "songFileURL" }, { name: "coverImgUR
 
 router.get("/music/edit/:id", (req, res, next) => {
     const id = req.params.id
+    const user = req.session.user._id
 
     Song.findById(id) 
     .then(songFromDB => {
-        res.render("music/edit", {song: songFromDB})
+        res.render("music/edit", {song: songFromDB, user:user})
     })
     .catch(err => next(err))
 })
@@ -101,5 +105,16 @@ router.post("/music/search-song", (req, res, next) => {
     .catch(err => next(err))
     //add message if song isn't found
 })
+
+router.get("/music/all-music", (req, res,next) => {
+    const user = req.session.user._id
+    Song.find()
+    .then(allSongs => {
+        res.render("music/all-music", {user: user, song:allSongs});
+    })
+    .catch(err => next(err))
+})
+
+
 
 module.exports = router;

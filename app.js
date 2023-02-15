@@ -49,6 +49,10 @@ const projectName = "cornudify";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
+
+
+
+
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
