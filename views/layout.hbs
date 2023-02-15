@@ -15,30 +15,36 @@
    <body>
    
       <nav>
+         <div>
          <div class="logo-container">
             <a href="/">Soundportal 🎵</a>
          </div>
-
          <div class="auth-container">
-            
-         <a href="/auth/signup">SIGN UP</a>
-         <div class="dropdown">
-            <a class="dropbtn"href="/auth/login">LOG IN</a>
-            <div class="dropdown-content">
-               <form action="/auth/login" method="POST">
-                  <label for="username">Username:</label>
-	               <input type="text" name="username">
-	
-                  <label for="password">Password:</label>
-                  <input type="password" name="password">
-	
-                  <button type="submit">Sign up</button>
 
-                  <a href="/auth/signup">Not registered yet?</a>
-               </form>
+            <div class="signup-container">
+               <a href="/auth/signup">SIGN UP</a>
+            </div>
+            <div class="dropdown login-container">
+               <a class="dropbtn"href="/auth/login">LOG IN</a>
+                  <div class="dropdown-content">
+                     <form action="/auth/login" method="POST">
+                        <label for="username">Username:</label>
+	                     <input type="text" name="username">
+
+	
+                        <label for="password">Password:</label>
+                        <input type="password" name="password">
+	
+                        <button type="submit">Sign up</button>
+
+                        <a href="/auth/signup">Not registered yet?</a>
+                     </form>
+                  </div>
+            </div>
+            <div ckass="logout-container">
+               <a href="/auth/logout">LOG OUT</a>
             </div>
          </div>
-         <a href="/auth/logout">LOG OUT</a>
          </div>
       </nav>
 
