@@ -1,6 +1,11 @@
 <h1>All the Songs</h1>
 {{#each song}}
 	<div>
+	<img src="{{coverImgURL}}" alt="song cover image">
 	<h1>{{title}}</h1>
 	</div>
+	<form action="/music/playlist" method="POST">
+	<input type="hidden" name="song" value="{{_id}}">
+	<button type="submit" name="song">Add to my Playlist</button>
+	</form>
 {{/each}}

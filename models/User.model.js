@@ -38,7 +38,11 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
-    }
+    },
+    playlist: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Song',
+    }]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    
