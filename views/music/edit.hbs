@@ -2,6 +2,7 @@
     <h1>Edit <span id="song-span">{{song.title}}</span> details</h1>
 
 {{!-- <img id="" src="{{song.coverImgURL}}" alt="song's cover image"> --}}
+<div id="edit-divider">
     <div class="edit-container2">
         
         <form action="/music/edit/{{song._id}}" method="POST" >
@@ -13,16 +14,19 @@
                 Author
                 <input type="text" name="author" value="{{song.author}}">
             </label>
-            <label for="genre">Genre:
+            <label for="genre">Genre:</label>
             <select id="select-label"name="genre">
+                <option value="" disabled selected hidden>Choose a genre</option>
                 {{#each genre}}
                 <option>{{this}}</option>
                 {{/each}}
             </select>
-            </label>
+            
             <input type="submit"></input>
         </form>
 
+    </div>
+    <img src="/images/auri.png">
     </div>
 </div>
 

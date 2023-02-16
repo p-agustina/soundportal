@@ -62,12 +62,17 @@ router.post("/songs", uploader.any([{ name: "songFileURL" }, { name: "coverImgUR
 
 router.get("/music/edit/:id", isLoggedIn,(req, res, next) => {
     const id = req.params.id
-    const user = req.session.user._id
-
+    let user = req.session.user._id
+    let genre=  ["rock", "pop", "techno", "dance", "melodic", "hip-hop", "reggae", "country","folk", "indie", "house", "other"]
+    
+    User.findById(user)
+    .then(userFound=> {
+        return user= userFound
+    })
 
     Song.findById(id) 
     .then(songFromDB => {
-        res.render("music/edit", {song: songFromDB, user:user})
+        res.render("music/edit", { user:user, song: songFromDB, genre : genre})
     })
     .catch(err => next(err))
 })
@@ -99,15 +104,23 @@ router.get("/music/:id/delete", isLoggedIn,(req, res, next) => {
 //add route to find a song searched for on the search bar in the index view
 //aca seguro haya que agregar algo con la id de la cancion
 
+
 router.post("/music/search-song", (req, res, next) => {
     const {query} = req.body
+    let user = req.session.user._id
+    
+    
+    User.findById(user)
+    .then(userFound=> {
+        return user= userFound
+    })
 
     Song.find({"title": {$regex: query, $options: "i" }})
     .then(songsFromDB => {
         if (songsFromDB !== null) {
-            res.render("music/search-song", {songs: songsFromDB})
+            res.render("music/search-song", {user:user, songs: songsFromDB})
         }
-        else res.render("music/search-song", {message: "We have no match for your search. Try again:"})
+        else res.render("music/search-song", {user:user, message: "We have no match for your search. Try again:"})
     })
     .catch(err => next(err))
     //add message if song isn't found
