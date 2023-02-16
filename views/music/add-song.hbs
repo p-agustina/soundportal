@@ -2,15 +2,13 @@
 
 <h1>Add your songs</h1>
 
-{{!-- add a form to upload songs --}}
-{{!-- chequear como poner generos en otro lado --}}
-
-<form action="/songs" method="POST" id="upload-form" enctype="multipart/form-data">
+<div id="upload-container">
+<form class="upform-container" action="/songs" method="POST" id="upload-form" enctype="multipart/form-data">
     <label for="title">Title:</label>
     <input type="text" name="title">
 
     <label for="songFileURL">Song file:</label>
-    <input type="file" name="songFileURL">
+    <input class="img-label" type="file" name="songFileURL">
     {{!-- <input type="submit"> --}}
 
     <label for="author">Author:</label>
@@ -18,22 +16,28 @@
 
 
     <label for="genre">Genre:</label>
-    <select name="genre">
-    <option value="rock">Rock</option>
-    <option value="techno">Techno</option>
-    <option value="pop">Pop</option>
-    <option value="indie">Indie</option>
+    <select id="select-label"name="genre">
+        {{#each genre}}
+        <option>{{this}}</option>
+        {{/each}}
     </select>
 
-    <label for="coverImgURL">Cove image file:</label>
-    <input type="file" name="coverImgURL">
+    <label  for="coverImgURL">Cover image (optional):</label>
+    <input class="img-label" type="file" name="coverImgURL">
     {{!-- <input type="submit"> --}}
 
     <button type="submit">Upload song</button>
 
 </form>
 
+<div id="img-upload">
+<img src="/images/vinils.png">
+</div>
+
+</div>
+
 {{#if message}}
 	<h3 class="error">{{message}}</h3>
 {{/if}}
 </div>
+
