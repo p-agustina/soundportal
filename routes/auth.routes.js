@@ -62,8 +62,6 @@ router.post("/auth/signup",uploader.single("profileImgURL"), (req, res, next) =>
     })
 })
 
-
-
 //added route to render login view
 router.get("/auth/login", (req, res, next) => {
     res.render("login")

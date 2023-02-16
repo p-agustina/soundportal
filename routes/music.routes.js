@@ -83,12 +83,6 @@ router.get("/music/:id/delete", (req, res, next) => {
     })
 })
 
-//add route to show the results from the search bar
-
-// router.get("/music/search-song", (req, res, next) => {
-//     res.render("music/search-song")
-// })
-
 //add route to find a song searched for on the search bar in the index view
 //aca seguro haya que agregar algo con la id de la cancion
 
@@ -112,6 +106,21 @@ router.get("/music/all-music", (req, res,next) => {
         res.render("music/all-music", {user: user, song:allSongs});
     })
     .catch(err => next(err))
+})
+
+router.post("/music/playlist", (req, res, next) => {
+    const user = req.session.user._id
+    const {song} = req.body
+    console.log("Esto es song", song)
+
+    User.findByIdAndUpdate(user, {$push: {playlist: song[0]}})
+    .then(updatedUser => {
+        res.render("/profile", {user: updatedUser})
+    })
+
+
+
+
 })
 
 
