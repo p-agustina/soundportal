@@ -1,28 +1,28 @@
-<div class=".playlist-container">
-<h1>Edit {{song.title}} details</h1>
+<div class="playlist-container">
+    <h1>Edit <span id="song-span">{{song.title}}</span> details</h1>
 
-<img src="{{song.coverImgURL}}" alt="song's cover image">
+{{!-- <img id="" src="{{song.coverImgURL}}" alt="song's cover image"> --}}
+    <div class="edit-container">
+        
+        <form action="/music/edit/{{song._id}}" method="POST" >
+            <label>
+                Title
+                <input type="text" name="title" value="{{song.title}}"/>
+            </label>
+            <label>
+                Author
+                <input type="text" name="author" value="{{song.author}}">
+            </label>
+            <label for="genre">Genre:
+            <select id="select-label"name="genre">
+                {{#each genre}}
+                <option>{{this}}</option>
+                {{/each}}
+            </select>
+            </label>
+            <input type="submit"></input>
+        </form>
 
-<form action="/music/edit/{{song._id}}" method="POST" >
-    <label>
-        Title
-        <input type="text" name="title" value="{{song.title}}"/>
-    </label>
-    <label>
-        Author
-        <input type="text" name="author" value="{{song.author}}">
-    </label>
-    <label>
-        Genre
-        <select name="genre" value="{{song.genre}}">
-            <option value="rock">Rock</option>
-            <option value="techno">Techno</option>
-            <option value="pop">Pop</option>
-            <option value="indie">Indie</option>
-    </label>
-    <input type="submit"></input>
-
-</form>
-
+    </div>
 </div>
 

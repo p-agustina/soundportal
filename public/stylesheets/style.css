@@ -469,3 +469,27 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
 .add-btn {
   margin-top: 1rem;
 }
+
+#song-span {
+  color: #1DB954;
+}
+
+.edit-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.editform-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
