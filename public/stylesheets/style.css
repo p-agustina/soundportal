@@ -361,9 +361,34 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
 
 .edit-container {
   font-size: 0.8rem;
-  color: black;
+  color: black!important;
 }
 
 #addsongs-container{
   height: calc(100vh - 110px);
+}
+
+/* style para /all-music */
+
+.music-container {
+  margin: 0 auto;
+}
+
+.allsongs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.song-container2 {
+  margin: 1.5rem;
+  border: solid #191414 0.2;
+  border-style: ridge;
+  padding: 1rem;
+}
+
+.song-img img {
+  width: 10rem;
+  height: 10rem;
 }

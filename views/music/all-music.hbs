@@ -1,11 +1,22 @@
-<h1>All the Songs</h1>
+<div class="music-container">
+	<br>	
+<h1>MUSIC</h1>
+<div class="allsongs-container">
 {{#each song}}
-	<div>
-	<img src="{{coverImgURL}}" alt="song cover image">
-	<h1>{{title}}</h1>
+	<div class="song-container2">
+		<div class="song-img">
+			<img src="{{coverImgURL}}" alt="song cover image">
+		</div>
+		<h4>{{title}}</h4>
+		<h6>{{author}}</h6>
+		<audio controls>
+        	<source src="{{songURL}}" type="audio/mpeg">
+      	</audio>
+		<form action="/music/playlist" method="POST">
+			<input type="hidden" name="song" value="{{_id}}">
+			<button type="submit" name="song">Add to Playlist</button>
+		</form>
 	</div>
-	<form action="/music/playlist" method="POST">
-	<input type="hidden" name="song" value="{{_id}}">
-	<button type="submit" name="song">Add to my Playlist</button>
-	</form>
 {{/each}}
+</div>
+</div>

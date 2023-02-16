@@ -108,15 +108,33 @@ router.get("/music/all-music", (req, res,next) => {
     .catch(err => next(err))
 })
 
+
 router.post("/music/playlist", (req, res, next) => {
     const user = req.session.user._id
     const {song} = req.body
     console.log("Esto es song", song)
+    console.log("a ver si sale el id", song[0])
 
     User.findByIdAndUpdate(user, {$push: {playlist: song[0]}})
     .then(updatedUser => {
-        res.render("/profile", {user: updatedUser})
+        console.log(updatedUser)
+        // .populate("playlist")
+        res.redirect("/user/playlist")
     })
+
+router.get("/user/playlist", (req, res, next) => {
+    const user = req.session.user._id
+    
+    User.findById(user)
+    .populate("playlist")
+    .then(userFromDB => {
+         res.render("music/playlist", {user: userFromDB })
+    })
+})   
+
+
+
+
 
 
 

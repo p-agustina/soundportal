@@ -48,6 +48,12 @@
             </div>
             {{/unless}}
       {{#if user}}
+            <div id="search-container">
+        <form action="/music/search-song" method="POST">
+        <input type="text" name="query" placeholder="Find Song">
+        <button id="find-but" type="submit">Search</button>
+        </form>
+            </div>
             <div class="nav-button logout-container">
                <button id="logout-but"><a id="link" href="/auth/logout">Log out</a></button>
             </div>
