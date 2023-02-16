@@ -16,7 +16,7 @@ const songSchema = new Schema (
         
         genre: {
             type: String,
-            enum: ["rock", "pop", "techno", "dance", "melodic", "hip-hop", "reggae", "country","folk", "indie", ""],
+            enum: ["rock", "pop", "techno", "dance", "melodic", "hip-hop", "reggae", "country","folk", "indie", "house", "other"],
         },
         songURL: {
             type: String,

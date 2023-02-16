@@ -13,8 +13,9 @@ const { uploader,musicuploader, cloudinary } = require("../config/cloudinary.con
 router.get("/music/add-song",isLoggedIn, (req, res) => {
     const user = req.session.user._id
 
+    let genre=  ["rock", "pop", "techno", "dance", "melodic", "hip-hop", "reggae", "country","folk", "indie", "house", "other"]
 
-    res.render("music/add-song", {user: user});
+    res.render("music/add-song", {user: user, genre:genre});
 })
 
 //set new post route to creat a new song with input from the form
@@ -26,7 +27,14 @@ router.post("/songs", uploader.any([{ name: "songFileURL" }, { name: "coverImgUR
     console.log("LAS FILESSS!", files)
     
     const songFileURL = files[0].path
-    const coverImgURL = files[1].path
+    let coverImgURL
+
+    if(req.files[1]?.path != undefined){
+        coverImgURL = req.file[1].path}
+    else{
+        coverImgURL = "/images/song-placeholder-img.jpg"
+    }
+
 
     console.log(req.session)
     const id = req.session.user._id
