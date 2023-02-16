@@ -134,8 +134,9 @@ router.get("/user/playlist", (req, res, next) => {
     User.findById(user)
     .populate("playlist")
     .then(userFromDB => {
-         res.render("music/playlist", {user: userFromDB })
+        res.render("music/playlist", {user: userFromDB })
     })
 })   
+
 
 module.exports = router;

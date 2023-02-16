@@ -292,7 +292,6 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
 .profile-img-container{
   width: 200px;
   height: 200px;
-  margin-right: 2rem;
 }
 
 .profile-img-container img {
@@ -327,17 +326,20 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
 }
 
 .song-container {
-  width: 100vw;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
   display: flex;
   background-color: hsl(0, 10%, 88%);
-  padding: 1rem;
-  margin-bottom: 0.5rem;
+
 }
 
 .song-container img{
   width: 150px;
   height: 150px;
-  margin-right: 2rem;
+}
+.cover-img-container, .big-container, .genre-container{
+  padding: 20px;
 }
 
 .big-container {
