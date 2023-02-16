@@ -30,7 +30,7 @@ router.post("/songs", uploader.any([{ name: "songFileURL" }, { name: "coverImgUR
     let coverImgURL
 
     if(req.files[1]?.path != undefined){
-        coverImgURL = req.file[1].path}
+        coverImgURL = files[1].path}
     else{
         coverImgURL = "/images/song-placeholder-img.jpg"
     }
@@ -129,6 +129,7 @@ router.post("/music/playlist", (req, res, next) => {
         // .populate("playlist")
         res.redirect("/user/playlist")
     })
+})
 
 router.get("/user/playlist", (req, res, next) => {
     const user = req.session.user._id
@@ -136,18 +137,11 @@ router.get("/user/playlist", (req, res, next) => {
     User.findById(user)
     .populate("playlist")
     .then(userFromDB => {
-         res.render("music/playlist", {user: userFromDB })
+        res.render("music/playlist", {user: userFromDB })
     })
 })   
 
 
-
-
-
-
-
-
-})
 
 
 
