@@ -31,9 +31,6 @@ verde spoty #1DB954
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
   
   /* position: fixed; /* Set the navbar to fixed position */
   width: 100%; /*Full width */
@@ -41,19 +38,11 @@ nav {
   height: 60px;
 }
 
-nav > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 #link{
   text-decoration: none;
   color: white;
   font-weight: lighter;
-}
-.nav-button {
-  
 }
 
 #login-but{
@@ -131,6 +120,26 @@ nav a {
   border-radius: 4px;
 }
 
+#mini-img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+}
+
+#mini-a{
+  margin: 0 20px 0 0;
+}
+
+#mini-img img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+}
 
 
 /* Links inside the dropdown */
@@ -374,6 +383,10 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
 
 .music-container {
   margin: 0 auto;
+}
+
+.music-container h1{
+  text-align: center;
 }
 
 .allsongs-container {
