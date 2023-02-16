@@ -8,7 +8,13 @@ const { uploader, cloudinary } = require("../config/cloudinary.config")
 
 
 router.get("/auth/signup", (req, res, next) => {
-    res.render("signup")
+    if(req.session.user){
+      const user = req.session.user._id
+    
+      res.render("signup", {user: user} );}
+    else{
+      res.render("signup")
+    }
     })
 
 router.post("/auth/signup",uploader.single("profileImgURL"), (req, res, next) => {
