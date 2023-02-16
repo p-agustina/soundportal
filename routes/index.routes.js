@@ -8,9 +8,12 @@ const User = require("../models/User.model");
 router.get("/", (req, res, next) => {
 
   if(req.session.user){
-  const user = req.session.user._id
-
-  res.render("index", {user: user, layout: "layout2"} );}
+  let user = req.session.user._id
+  User.findById(user)
+  .then(userFound=> {
+      res.render("index", {user: userFound, layout: "layout2"});
+  })
+}
 else{
   res.render("index")
 }
