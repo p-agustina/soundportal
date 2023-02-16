@@ -1,7 +1,31 @@
+<br>
 <h1>your playlist</h1>
+<br>
 
 {{#each user.playlist}}
+<div class="song-container">
+  <div class="cover-img-container">
+    <img src="{{coverImgURL}}" alt="song cover image">
+  </div>
+  <div class="big-container">
+    <div class="audio-container">
+      <h4>{{title}}</h4>
+      <h6>{{author}}</h6>
+      <audio controls>
+        <source src="{{songURL}}" type="audio/mpeg">
+      </audio>
+    </div>
+{{!-- hacer que el link del genre te lleve a todas las canciones de ese genre --}}
+    {{!-- <div class="edit-container"> --}}
+      {{!-- <a href="/music/edit/{{id}}">Edit song</a> --}}
+      {{!-- <a href="/music/{{id}}/delete"><i style="font-size:24px" class="fa">&#xf014;</i> Delete song</a> --}}
+    {{!-- </div> --}}
+  </div>
+    <div class="genre-container">
+      <p>#{{genre}}</p>
+    </div>
+</div>
 
 
-{{title}}
+
 {{/each}}
