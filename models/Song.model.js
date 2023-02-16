@@ -13,9 +13,10 @@ const songSchema = new Schema (
         coverImgURL: {
             type: String            
         },
+        
         genre: {
             type: String,
-            required: true
+            enum: ["rock", "pop", "techno", "dance", "melodic", "hip-hop", "reggae", "country","folk", "indie", ""],
         },
         songURL: {
             type: String,

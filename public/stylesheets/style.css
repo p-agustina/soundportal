@@ -123,22 +123,36 @@ nav a {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 110px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  margin-top: 60px;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 4px;
 }
+
+
 
 /* Links inside the dropdown */
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin: 0;
   text-decoration: none;
   display: block;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.dropdown-content button{
+  margin-top: 20px;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: #1DB954}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
