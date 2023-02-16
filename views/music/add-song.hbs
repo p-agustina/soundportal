@@ -17,6 +17,7 @@
 
     <label for="genre">Genre:</label>
     <select id="select-label"name="genre">
+        <option value="" disabled selected hidden>Choose a genre</option>
         {{#each genre}}
         <option>{{this}}</option>
         {{/each}}
