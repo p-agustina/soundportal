@@ -30,7 +30,7 @@ router.post("/songs", uploader.any([{ name: "songFileURL" }, { name: "coverImgUR
     let coverImgURL
 
     if(req.files[1]?.path != undefined){
-        coverImgURL = req.file[1].path}
+        coverImgURL = files[1].path}
     else{
         coverImgURL = "/images/song-placeholder-img.jpg"
     }
@@ -97,11 +97,12 @@ router.get("/music/:id/delete", (req, res, next) => {
 router.post("/music/search-song", (req, res, next) => {
     const {query} = req.body
 
-    Song.findOne({"title": {$regex: query, $options: "i" }})
+    Song.find({"title": {$regex: query, $options: "i" }})
     .then(songsFromDB => {
         if (songsFromDB !== null) {
             res.render("music/search-song", {songs: songsFromDB})
         }
+        else res.render("music/search-song", {message: "We have no match for your search. Try again:"})
     })
     .catch(err => next(err))
     //add message if song isn't found
@@ -116,19 +117,16 @@ router.get("/music/all-music", (req, res,next) => {
     .catch(err => next(err))
 })
 
-
 router.post("/music/playlist", (req, res, next) => {
     const user = req.session.user._id
     const {song} = req.body
-    console.log("Esto es song", song)
-    console.log("a ver si sale el id", song[0])
 
     User.findByIdAndUpdate(user, {$push: {playlist: song[0]}})
     .then(updatedUser => {
         console.log(updatedUser)
-        // .populate("playlist")
         res.redirect("/user/playlist")
     })
+})
 
 router.get("/user/playlist", (req, res, next) => {
     const user = req.session.user._id
@@ -139,16 +137,5 @@ router.get("/user/playlist", (req, res, next) => {
          res.render("music/playlist", {user: userFromDB })
     })
 })   
-
-
-
-
-
-
-
-
-})
-
-
 
 module.exports = router;
