@@ -8,21 +8,19 @@ const { uploader, cloudinary } = require("../config/cloudinary.config")
 
 
 router.get("/auth/signup", (req, res, next) => {
-    if(req.session.user){
-      const user = req.session.user._id
-    
-      res.render("signup", {user: user} );}
-    else{
       res.render("signup")
-    }
     })
 
 router.post("/auth/signup",uploader.single("profileImgURL"), (req, res, next) => {
         const { username, password, name, email } = req.body
 
-
+let profileImgURL
     //uploaded image
-        const profileImgURL = req.file.path
+    if(req.file?.path != undefined){
+        profileImgURL = req.file.path}
+    else{
+      profileImgURL = "/images/default-profile-pic.png"
+    }
         
     // Validation
     // Check if username is empty
@@ -56,7 +54,7 @@ router.post("/auth/signup",uploader.single("profileImgURL"), (req, res, next) =>
         console.log(hash)
 
         // Create user
-        User.create({ username: username, password: hash, name, email, profileImg: profileImgURL })
+        User.create({ username: username, password: hash, name, email, profileImg: profileImgURL})
             .then(createdUser => {
             console.log(createdUser)
             res.redirect("/auth/login")
