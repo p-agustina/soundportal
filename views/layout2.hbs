@@ -50,22 +50,15 @@
             <div class="nav-button signup-container">
                <button id="signup-but"><a id="link" href="/auth/signup">Sign up</a></button>
             </div>
-      {{/unless}}
 
+            {{/unless}}
       {{#if user}}
-            <div id="search-container">
-            <form action="/music/search-song" method="POST">
-            <input type="text" name="query" placeholder="Find Song">
-            <button id="find-but" type="submit">Search</button>
-            </form>
-            </div>
-
-            <a id="mini-a" href="/profile">
+            <a href="/profile">
             <div id="mini-img">
             <img src="{{user.profileImg}}">
             </div>
             </a>
-            
+
             <div class="nav-button logout-container">
                <button id="logout-but"><a id="link" href="/auth/logout">Log out</a></button>
             </div>
