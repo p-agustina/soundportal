@@ -11,11 +11,15 @@ const { uploader,musicuploader, cloudinary } = require("../config/cloudinary.con
 //create route to render the form to add a song when the link on the index.hbs is clicked
 
 router.get("/music/add-song",isLoggedIn, (req, res) => {
-    const user = req.session.user._id
+    let user = req.session.user._id
 
     let genre=  ["rock", "pop", "techno", "dance", "melodic", "hip-hop", "reggae", "country","folk", "indie", "house", "other"]
+    
+    User.findById(user)
+    .then(userFound=> {
+        res.render("music/add-song", {user: userFound, genre:genre});
+    })
 
-    res.render("music/add-song", {user: user, genre:genre});
 })
 
 //set new post route to creat a new song with input from the form
@@ -56,9 +60,10 @@ router.post("/songs", uploader.any([{ name: "songFileURL" }, { name: "coverImgUR
 
 //render a form to edit the songs
 
-router.get("/music/edit/:id", (req, res, next) => {
+router.get("/music/edit/:id", isLoggedIn,(req, res, next) => {
     const id = req.params.id
     const user = req.session.user._id
+
 
     Song.findById(id) 
     .then(songFromDB => {
@@ -82,7 +87,7 @@ router.post("/music/edit/:id", (req, res, next) => {
 
 // delete a song from profile
 
-router.get("/music/:id/delete", (req, res, next) => {
+router.get("/music/:id/delete", isLoggedIn,(req, res, next) => {
     const id = req.params.id;
 
     Song.findByIdAndRemove(id)
@@ -109,7 +114,13 @@ router.post("/music/search-song", (req, res, next) => {
 })
 
 router.get("/music/all-music", (req, res,next) => {
-    const user = req.session.user._id
+    let user = req.session.user._id
+    
+    User.findById(user)
+    .then(userFound=> {
+        return user= userFound
+    })
+
     Song.find()
     .then(allSongs => {
         res.render("music/all-music", {user: user, song:allSongs});
@@ -128,7 +139,7 @@ router.post("/music/playlist", (req, res, next) => {
     })
 })
 
-router.get("/user/playlist", (req, res, next) => {
+router.get("/user/playlist", isLoggedIn,(req, res, next) => {
     const user = req.session.user._id
     
     User.findById(user)
