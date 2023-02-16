@@ -1,8 +1,35 @@
-<h1>Song details 🎶</h1>
+<div class="playlist-container">
+    <h1>These are the songs we found:</h1>
+    
+    <div class="search-container">
+    {{#each songs}}
+	<div class="song-container2">
+		<div class="song-img">
+			<img src="{{coverImgURL}}" alt="song cover image">
+		</div>
+		<h4>{{title}}</h4>
+		<h6>{{author}}</h6>
+		<audio controls>
+        	<source src="{{songURL}}" type="audio/mpeg">
+      	</audio>
+		<form action="/music/playlist" method="POST">
+			<input type="hidden" name="song" value="{{_id}}">
+			<button type="submit" name="song">Add to Playlist</button>
+		</form>
+	</div>
+    {{/each}}
+    </div>
 
+{{#if message}}
 
-{{#each songs}}
+	<h4 class="error">{{message}}</h4>
+    <br>
+     <div id="search-container">
+        <form action="/music/search-song" method="POST">
+        <input type="text" name="query" placeholder="Song's Title">
+        <button id="find-but" type="submit">FIND</button>
+        </form>
+    </div>
+{{/if}}
 
-
-{{title}}
-{{/each}}
+</div>

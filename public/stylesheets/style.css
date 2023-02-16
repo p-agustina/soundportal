@@ -388,6 +388,10 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
   border: solid #191414 0.2;
   border-style: ridge;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .song-img img {
@@ -431,3 +435,24 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
   margin-bottom: 1.2rem;
 }
 
+.playlist-container {
+  min-height: calc(100vh - 110px);
+}
+
+.playlist-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.search-container {
+  min-height: calc(100vh - 110px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.add-btn {
+  margin-top: 1rem;
+}
