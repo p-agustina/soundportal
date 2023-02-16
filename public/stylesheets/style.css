@@ -172,7 +172,19 @@ nav a {
 /*.dropdown:hover .dropbtn {
   /*WRITE SOME HOVER FOR LINKS"
 }*/
-
+.carrousel-btn {
+  background-color: #f1f1f1;
+  color: black;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+.carrousel-btn:hover {
+  background-color: #1DB954;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
 .index-container {
   display: flex;
   flex-direction: row;
@@ -292,7 +304,8 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
 
 .user-profile {
   display: flex;
-  background-color: bisque;
+  background-color: lightgrey;
+  object-fit: cover;
   padding: 1rem;
   width: 100%,
 
@@ -301,6 +314,7 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
 .profile-img-container{
   width: 200px;
   height: 200px;
+  margin-right: 1rem;
 }
 
 .profile-img-container img {
@@ -474,13 +488,13 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
   color: #1DB954;
 }
 
-.edit-container {
+.edit-container2 {
   width: 50%;
   display: flex;
   justify-content: center;
 }
 
-.edit-container form {
+.edit-container2 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
