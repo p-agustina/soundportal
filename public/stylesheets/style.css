@@ -541,3 +541,15 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
   flex-direction: column;
 }
 
+
+#error-container{
+  height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#error-container a{
+  color: #1DB954;
+}
