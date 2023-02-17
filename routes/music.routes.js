@@ -117,13 +117,12 @@ router.post("/music/search-song", (req, res, next) => {
 
     Song.find({"title": {$regex: query, $options: "i" }})
     .then(songsFromDB => {
-        if (songsFromDB !== null) {
+        if (songsFromDB.length !== 0) {
             res.render("music/search-song", {user:user, songs: songsFromDB})
         }
         else res.render("music/search-song", {user:user, message: "We have no match for your search. Try again:"})
     })
     .catch(err => next(err))
-    //add message if song isn't found
 })
 
 router.get("/music/all-music", (req, res,next) => {
