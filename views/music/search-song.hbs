@@ -1,4 +1,5 @@
 <div class="playlist-container">
+{{#unless message}}
     <h1>These are the songs we found:</h1>
     
     <div class="search-container">
@@ -19,6 +20,7 @@
 	</div>
     {{/each}}
     </div>
+{{/unless}}
 
 {{#if message}}
 
