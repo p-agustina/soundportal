@@ -115,6 +115,7 @@ router.post("/music/search-song", (req, res, next) => {
         return user= userFound
     })
 
+    
     Song.find({"title": {$regex: query, $options: "i" }})
     .then(songsFromDB => {
         if (songsFromDB.length !== 0) {
