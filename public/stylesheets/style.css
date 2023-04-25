@@ -546,7 +546,7 @@ HERE I'M WORKING WITH THE STYLE OF THE PROFILE*/
 }
 
 
-#error-container{
+.error-container{
   height: calc(100vh - 110px);
   display: flex;
   flex-direction: column;
