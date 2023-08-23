@@ -58,24 +58,28 @@ SESSION_SECRET=your_session_secret_here
 4. Open your web browser and access http://localhost:3000 to use the app.
 
 
+<pre>
 ## API Routes
 
 SoundPortal implements the following API routes:
 
-GET / Home page
-GET /login Login page
-GET /signup Signup page
-GET /music Browse and search music
-GET /music/:id View music details
-POST /music Upload new music
-GET /playlist View user playlists
-POST /playlist Create a new playlist
-GET /playlist/:id View playlist details
-PUT /playlist/:id Update playlist
+```
+GET /              Home page
+GET /login         Login page
+GET /signup        Signup page
+GET /music         Browse and search music
+GET /music/:id     View music details
+POST /music        Upload new music
+GET /playlist      View user playlists
+POST /playlist     Create a new playlist
+GET /playlist/:id  View playlist details
+PUT /playlist/:id  Update playlist
 DELETE /playlist/:id Delete playlist
 POST /playlist/:id/add Add music to playlist
 POST /playlist/:id/remove Remove music from playlist
-GET /play/:id Play music
+GET /play/:id      Play music
+```
+</pre>
 
 ## Models
 
